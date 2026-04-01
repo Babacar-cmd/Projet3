@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mbow Yélli Family | L'Héritage Immortel</title>
+    <!-- Fonts : Cinzel pour le côté royal, Montserrat pour la clarté -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icône de l'onglet du navigateur -->
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<!-- Icône pour les iPhones/iPads (Apple Touch Icon) -->
+<link rel="apple-touch-icon" href="/images/favicon.png">
+
+<meta name="theme-color" content="#0a0e14">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+</head>
+<body>
+
+    <!-- Menu de Navigation Minimaliste -->
+    <nav class="navbar">
+        <div class="logo">MBOW YÉLLI</div>
+        <ul class="nav-links">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#heritage">Héritage</a></li>
+            <li><a href="#galerie">Souvenirs</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section : Impact Visuel -->
+    <header id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="reveal">Bienvenue dans la Dynastie</h2>
+            <h1 class="glitch">Mbow Yélli Familly</h1>
+            <a href="/Moi/index.html"><h2><em>Créateur // Babacar MBOW</em></h2></a><br><br>
+            <p>Unie par le sang, guidée par l'excellence.</p>
+            <div class="scroll-indicator">
+                <span>Explorer</span>
+                <div class="mouse"></div>
+            </div>
+        </div>
+        <img src="SG.png" height="200" width="200" alt="photo">
+    </header>
+
+    <!-- Section Statistiques Animées -->
+<section id="stats" class="stats-section">
+    <div class="container stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <h2 class="counter" data-target="150">0</h2>
+            <p>Membres</p>
+        </div>
+        <div class="stat-card highlight">
+            <i class="fas fa-globe-africa"></i>
+            <h2 class="counter" data-target="5">0</h2>
+            <p>Pays de résidence</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h2 class="counter" data-target="45">0</h2>
+            <p>Diplômés & Experts</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-baby-carriage"></i>
+            <h2 class="counter" data-target="8">0</h2>
+            <p>Naissances cette année</p>
+        </div>
+    </div>
+</section>
+
+<!-- Script pour l'animation des chiffres -->
+<script>
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    const startCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 15);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    };
+
+    // Détection du défilement pour lancer l'animation une seule fois
+    window.addEventListener('scroll', function() {
+        const statsSection = document.getElementById('stats');
+        const position = statsSection.getBoundingClientRect();
+        if(position.top < window.innerHeight && position.bottom >= 0) {
+            startCounters();
+            // On retire l'écouteur après le premier lancement
+            window.removeEventListener('scroll', arguments.callee);
+        }
+    }, false);
+</script>
+
+<!-- Section Carte du Monde Stylisée -->
+<section id="world-map" class="map-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Présence Globale</span>
+            <h2>La Famille à travers le Monde</h2>
+            <p>De Dakar à New York, l'esprit Mbow Yélli ne connaît pas de frontières.</p>
+        </div>
+
+        <div class="map-container">
+            <!-- Image de carte du monde en fond (SVG ou PNG sombre) -->
+            <img src="carte du monde.jpg" alt="Carte du monde" class="map-bg">
+            
+            <!-- Points de présence (Pulse points) -->
+            <div class="pin dakar" data-city="Dakar (Berceau)"><span></span></div>
+            <div class="pin gambie" data-city="Gambie"><span></span></div>
+            <div class="pin paris" data-city="Paris"><span></span></div>
+            <div class="pin nyc" data-city="New York"><span></span></div>
+            <div class="pin montreal" data-city="Montréal"><span></span></div>
+            <div class="pin casablanca" data-city="Casablanca"><span></span></div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Section Héritage avec Timeline -->
+    <section id="heritage" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Notre Parcours</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Les Racines</h3>
+                        <p>L'origine de notre force et les valeurs transmises par nos ancêtres.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot highlight"></div>
+                    <div class="timeline-content">
+                        <h3>Aujourd'hui</h3>
+                        <p>Une famille soudée, rayonnante partout dans le monde.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Section Arbre Généalogique Moderne -->
+<section id="genealogie" class="section-padding">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Notre Lignée</span>
+            <h2>L'Arbre des Mbow Yélli</h2>
+            <p>De la racine à la cime, chaque branche fortifie notre nom.</p>
+        </div>
+
+        <div class="family-tree">
+            <!-- Génération 1 : Les Patriarches -->
+            <div class="generation">
+                <h4 class="gen-title">Les Fondateurs</h4>
+                <div class="nodes-container">
+                    <div class="family-node gold-border">
+                        <div class="node-icon"><i class="fas fa-crown"></i></div>
+                        <span>Aînés de la Lignée</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tree-line"></div>
+
+            <!-- Génération 2 : Les Piliers -->
+            <div class="generation">
+                <h4 class="gen-title">Les Piliers</h4>
+                <div class="nodes-container">
+                    <div class="family-node"><span>Branche Alpha</span></div>
+                    <div class="family-node"><span>Branche Bêta</span></div>
+                    <div class="family-node"><span>Branche Gamma</span></div>
+                </div>
+            </div>
+
+            <div class="tree-line"></div>
+
+            <!-- Génération 3 : La Relève -->
+            <div class="generation">
+                <h4 class="gen-title">La Jeunesse</h4>
+                <div class="nodes-container">
+                    <div class="family-node small"><span>Petits-enfants</span></div>
+                    <div class="family-node small"><span>Nouvelle Génération</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+<!-- Section Mémorial : Nos Étoiles -->
+<section id="memorial" class="section-padding memorial-bg">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge gold-light">Mémoire Éternelle</span>
+            <h2 class="serif-title">Ceux qui nous ont précédés</h2>
+            <p class="memorial-intro">Hommage à nos aînés qui ont tracé le chemin. Leur sagesse reste notre boussole.</p>
+        </div>
+
+        <div class="memorial-grid">
+            <!-- Hommage 1 -->
+            <div class="memorial-card">
+                <div class="photo-frame">
+                    <img src="ancetre 1.jpg" alt="Ancêtre 1">
+                </div>
+                <div class="memorial-info">
+                    <h3>Le Patriarche Fondateur</h3>
+                    <span class="years">1930 — 2015</span>
+                    <p class="legacy-text">"La force d'un homme réside dans l'unité de sa famille."</p>
+                </div>
+            </div>
+
+            <!-- Hommage 2 -->
+            <div class="memorial-card">
+                <div class="photo-frame">
+                    <img src="ancetre2.jpg" alt="Ancêtre 2">
+                </div>
+                <div class="memorial-info">
+                    <h3>La Mère de la Lignée</h3>
+                    <span class="years">1935 — 2020</span>
+                    <p class="legacy-text">"Cultivez l'amour, vous récolterez la paix."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="candle-container">
+            <i class="fas fa-fire-alt candle-icon"></i>
+            <p>Une flamme qui ne s'éteint jamais dans nos cœurs.</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Galerie "Glassmorphism" -->
+    <section id="galerie" class="section-padding bg-darker">
+        <div class="container">
+            <h2 class="section-title">Instants Immortels</h2>
+            <div class="modern-grid">
+                <div class="grid-card">
+                    <img src="célébration.jpg" loading="lazy" width="800" height="600" alt="Famille">
+                    <div class="card-overlay"><span>Célébrations</span></div>
+                </div>
+                <div class="grid-card">
+                    <img src="patrimoine.jpg" loading="lazy" width="800" height="600" alt="Tradition">
+                    <div class="card-overlay"><span>Patrimoine</span></div>
+                </div>
+                <div class="grid-card tall">
+                    <img src="relève.jpg" loading="lazy" width="800" height="600" alt="Jeunesse">
+                    <div class="card-overlay"><span>La Relève</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Section Livre d'Or Interactif -->
+<section id="livre-dor" class="section-padding bg-darker">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Paroles de Famille</span>
+            <h2>Le Mur de la Gratitude</h2>
+            <p>Laissez une trace, un vœu ou un conseil pour les générations futures.</p>
+        </div>
+
+        <!-- Formulaire d'ajout rapide -->
+        <div class="guestbook-form">
+            <input type="text" id="guest-name" placeholder="Votre Prénom (ex: Amadou)">
+            <textarea id="guest-msg" placeholder="Votre message de sagesse..."></textarea>
+            <button onclick="addMessage()" class="cta-btn small">Publier sur le mur</button>
+        </div>
+
+        <!-- Grille des messages -->
+        <div class="messages-wall" id="wall">
+            <div class="message-card">
+                <p>"Que l'unité de la famille Mbow Yélli soit notre plus grand héritage."</p>
+                <span class="author">- Le Patriarche</span>
+            </div>
+            <div class="message-card">
+                <p>"Fière de porter ce nom et de contribuer à notre rayonnement."</p>
+                <span class="author">- Aminata Mbow</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function addMessage() {
+        const name = document.getElementById('guest-name').value;
+        const msg = document.getElementById('guest-msg').value;
+        const wall = document.getElementById('wall');
+
+        if(name && msg) {
+            const newCard = document.createElement('div');
+            newCard.className = 'message-card new-entry';
+            newCard.innerHTML = `<p>"${msg}"</p><span class="author">- ${name}</span>`;
+            
+            wall.prepend(newCard); // Ajoute le message au début
+            
+            // Réinitialisation
+            document.getElementById('guest-name').value = '';
+            document.getElementById('guest-msg').value = '';
+        } else {
+            alert("Veuillez remplir les deux champs.");
+        }
+    }
+</script>
+   
+<section class="registration-section">
+    <div class="registration-card">
+        <div class="reg-header">
+            <i class="fas fa-user-plus"></i>
+            <h2>Rejoindre la Lignée</h2>
+            <p>Inscrivez un nouveau membre dans la famille Mbow Yélli</p>
+        </div>
+
+        <form action="process_inscription.php" method="POST" class="reg-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" name="nom" placeholder="Ex: Moussa Mbow" required>
+                </div>
+                <div class="form-group">
+                    <label>Branche Familiale</label>
+                    <select name="branche">
+                        <option value="directe">Lignée Directe</option>
+                        <option value="allie">Allié (Mariage)</option>
+                        <option value="autre">Autre branche</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Numéro de Téléphone (WhatsApp)</label>
+                <input type="tel" name="telephone" placeholder="+221 ..." required>
+            </div>
+
+            <div class="form-group">
+                <label>Lieu de résidence (Ville/Pays)</label>
+                <input type="text" name="residence" placeholder="Ex: Dakar, Sénégal">
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-check-circle"></i> Valider l'inscription
+            </button>
+        </form>
+    </div>
+</section>
+
+
+    <!-- Footer Contact -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Mbow Yélli</h2>
+            <p>Garder le lien, protéger l'avenir.</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="copyright">&copy; 2026 Mbow Yélli Family - Design d'Exception.</p>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        lazyImages.forEach(img => {
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+            // Si l'image est déjà en cache
+            if (img.complete) img.classList.add('loaded');
+        });
+    });
+</script>
+
+
+</body>
+</html>
